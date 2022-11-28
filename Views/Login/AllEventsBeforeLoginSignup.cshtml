@@ -1,0 +1,18 @@
+﻿@model IEnumerable<BookReadingEvents.Domain.Event>
+
+@{
+    ViewBag.Title = "Book Reading Events";
+    Layout = "~/Views/Shared/_LayoutLoginSignup.cshtml";
+}
+
+<h1>Upcoming Events!</h1>
+
+<div>
+    @Html.Partial("_EventsBeforeLoginSignupPartialView", Model.Where(e => e.Date > DateTime.Now))
+</div>
+
+<h1>Past Events!</h1>
+
+<div>
+    @Html.Partial("_EventsBeforeLoginSignupPartialView", Model.Where(e => e.Date < DateTime.Now))
+</div>

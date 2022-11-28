@@ -1,0 +1,17 @@
+﻿@model IEnumerable<BookReadingEvents.Domain.Event>
+
+@{
+    ViewBag.Title = "All Events";
+}
+
+<h1>Upcoming Events!</h1>
+
+<div>
+    @Html.Partial("_EventsPartialView" , Model.Where(e => e.Date > DateTime.Now))
+</div>
+
+<h1>Past Events!</h1>
+
+<div>
+    @Html.Partial("_EventsPartialView" , Model.Where(e=> e.Date < DateTime.Now))
+</div>
